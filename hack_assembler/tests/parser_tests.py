@@ -4,8 +4,14 @@ from ..parser import parse
 from .. import symbol_table as symbol_table_module
 
 
-def test_removal_of_comments():
-    actual = parse('//nocode'+os.linesep+'@2//address')
+def test_removal_of_comments_entire_line():
+    actual = parse('//nocode')
+    expected = []
+    assert_equal(actual, expected)
+
+
+def test_removal_of_comments_mixed_with_valid_instructions():
+    actual = parse('@2//address')
     expected = ['@2']
     assert_equal(actual, expected)
 
@@ -16,6 +22,12 @@ def test_removal_of_spaces():
     assert_equal(actual, expected)
 
 
+def test_multiple_lines():
+    actual = parse('@2' + os.linesep + 'D=A' + os.linesep + '@3')
+    expected = ['@2', 'D=A', '@3']
+    assert_equal(actual, expected)
+
+
 def test_removal_of_empty_lines():
     actual = parse(os.linesep + os.linesep + os.linesep)
     expected = []
@@ -23,11 +35,9 @@ def test_removal_of_empty_lines():
 
 
 def test_extraction_of_labels():
-    actual_symbol_table = {}
-    actual_parsing = parse('@R1'+os.linesep+'(LOOP)', actual_symbol_table)
+    symbol_table = {}
+    parsed_lines = parse('@R1' + os.linesep + '(LOOP)', symbol_table)
 
-    expected_symbol_table = {'LOOP': 1}
-    expected_parsing = ['@R1']
-
-    assert_equal(actual_symbol_table, expected_symbol_table)
-    assert_equal(actual_parsing, expected_parsing)
+    actual = (parsed_lines, symbol_table)
+    expected = (['@R1'], {'LOOP': 1})
+    assert_equal(actual, expected)

@@ -1,13 +1,13 @@
 import sys
 import os
-import hack_assembler
+from . import assemble
 
 
 def main(args=sys.argv):
     inputfile = _get_inputfile(args)
     if inputfile:
-        with open(inputfile, 'r') as f:
-            print(hack_assembler.assemble(f.read()))
+        with open(inputfile) as f:
+            print(assemble(f.read()))
 
 
 def _get_inputfile(args):
@@ -17,7 +17,7 @@ def _get_inputfile(args):
 
     inputfile = args[1]
     if not os.path.isfile(inputfile):
-        print('hack-assembler: '+inputfile+': No such file or directory')
+        print('hack-assembler: ' + inputfile + ': No such file or directory')
         return False
 
     return inputfile
