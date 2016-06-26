@@ -1,0 +1,3 @@
+include README.md
+include hack_assembler/tests/examples/*.asm
+include hack_assembler/tests/examples/*.hack
