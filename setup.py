@@ -9,7 +9,7 @@ def readme():
 setup(
     name='hack_assembler',
     version='0.1',
-    description='An implementation of the assembler for the Hack computer (nand2tetris.org)',
+    description='An implementation of the assembler for the Hack computer.',
     long_description=readme(),
     classifiers=[
         'License :: OSI Approved :: Apache Software License',

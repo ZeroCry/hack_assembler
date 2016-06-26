@@ -3,9 +3,6 @@ from . import a_translator, c_translator
 
 
 def translate(lines, symbol_table):
-    """
-    @TODO: refactor this method ...
-    """
     machine_code = []
     for line in lines:
         if _instruction_type(line) == 'a':
