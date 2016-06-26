@@ -3,6 +3,8 @@
 An implementation of the assembler for the Hack computer, described on
 [Chapter 6][0] of ["From NAND to Tetris"][1] course.
 
+[![Build Status](https://travis-ci.org/thiagoalessio/hack_assembler.svg?branch=master)](https://travis-ci.org/thiagoalessio/hack_assembler)
+
 ## Installation
 
     $ pip install hack_assembler
