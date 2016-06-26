@@ -2,4 +2,7 @@ language: python
 python:
   - "3.5"
 install: "pip install -r development.txt"
-script: nosetests
+script: "nosetests --with-coverage && codeclimate-test-reporter"
+addons:
+  code_climate:
+    repo_token: 74a0c8ea33a7d91f0206c3abb4d1f63523bc7838fd2124e314e7f6bd6768e814
