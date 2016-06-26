@@ -8,7 +8,7 @@ def readme():
 
 setup(
     name='hack_assembler',
-    version='0.3',
+    version='0.3.1',
     description='An implementation of the assembler for the Hack computer.',
     long_description=readme(),
     classifiers=[
