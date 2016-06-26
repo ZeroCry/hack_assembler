@@ -5,7 +5,7 @@ An implementation of the assembler for the Hack computer, described on
 `Chapter 6 <http://nand2tetris.org/06.php>`__ of
 `"From NAND to Tetris" <http://nand2tetris.org>`__ course.
 
-|Build Status| |Code Climate| |Test Coverage|
+|PyPI| |Build Status| |Code Climate| |Test Coverage|
 
 Installation
 ------------
@@ -59,3 +59,5 @@ License
    :target: https://codeclimate.com/github/thiagoalessio/hack_assembler
 .. |Test Coverage| image:: https://codeclimate.com/github/thiagoalessio/hack_assembler/badges/coverage.svg
    :target: https://codeclimate.com/github/thiagoalessio/hack_assembler/coverage
+.. |PyPI| image:: https://badge.fury.io/py/hack_assembler.svg
+   :target: https://badge.fury.io/py/hack_assembler
