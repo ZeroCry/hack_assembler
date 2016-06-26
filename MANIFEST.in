@@ -1,3 +1,2 @@
 include README.rst
-include hack_assembler/tests/examples/*.asm
-include hack_assembler/tests/examples/*.hack
+include hack_assembler/translator/*.py
