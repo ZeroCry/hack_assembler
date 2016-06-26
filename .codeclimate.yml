@@ -1,0 +1,27 @@
+---
+engines:
+
+  pep8:
+    enabled: true
+
+  radon:
+    enabled: true
+
+  fixme:
+    enabled: true
+
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - python
+
+  markdownlint:
+    enabled: true
+
+ratings:
+  paths:
+  - "**.py"
+
+exclude_paths:
+  - hack_assembler/tests/**/*
