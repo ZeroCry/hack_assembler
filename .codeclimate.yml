@@ -16,9 +16,6 @@ engines:
       languages:
       - python
 
-  markdownlint:
-    enabled: true
-
 ratings:
   paths:
   - "**.py"
