@@ -4,6 +4,8 @@ An implementation of the assembler for the Hack computer, described on
 [Chapter 6][0] of ["From NAND to Tetris"][1] course.
 
 [![Build Status](https://travis-ci.org/thiagoalessio/hack_assembler.svg?branch=master)](https://travis-ci.org/thiagoalessio/hack_assembler)
+[![Code Climate](https://codeclimate.com/github/thiagoalessio/hack_assembler/badges/gpa.svg)](https://codeclimate.com/github/thiagoalessio/hack_assembler)
+[![Test Coverage](https://codeclimate.com/github/thiagoalessio/hack_assembler/badges/coverage.svg)](https://codeclimate.com/github/thiagoalessio/hack_assembler/coverage)
 
 ## Installation
 
