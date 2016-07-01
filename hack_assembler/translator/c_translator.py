@@ -1,14 +1,14 @@
-def translate(line):
-    comp, dest, jump = _extract_line_parts(line)
+def translate(instruction):
+    comp, dest, jump = _extract_instruction_parts(instruction)
     return '111' + _comp(comp) + _dest(dest) + _jump(jump)
 
 
-def _extract_line_parts(line):
-    if '=' in line:
-        dest, comp = line.split('=')
+def _extract_instruction_parts(instruction):
+    if '=' in instruction:
+        dest, comp = instruction.split('=')
         return (comp, dest, None)
     else:
-        comp, jump = line.split(';')
+        comp, jump = instruction.split(';')
         return (comp, None, jump)
 
 

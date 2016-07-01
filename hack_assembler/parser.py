@@ -3,27 +3,27 @@ import re
 from . import symbol_table as symbol_table_module
 
 
-def parse(lines, symbol_table=symbol_table_module.init()):
-    parsed_lines = []
+def parse(asm_input, symbol_table=symbol_table_module.init()):
+    instructions = []
 
-    for line in lines.split(os.linesep):
+    for line in asm_input.split(os.linesep):
 
         line = _remove_comments(line)
         line = _remove_spaces(line)
 
-        # empty lines produce no machine code.
+        # empty line produces no instruction to the machine.
         if not line:
             continue
 
-        # labels are pseudo-commands, they also produce no machine code,
-        # just an entry on the symbol table.
+        # label is a pseudo-command, it also produces no instruction to the
+        # machine, just an entry on the symbol table.
         elif _is_label(line):
-            _extract_label(len(parsed_lines), line, symbol_table)
+            _extract_label(len(instructions), line, symbol_table)
 
         else:
-            parsed_lines.append(line)
+            instructions.append(line)
 
-    return parsed_lines
+    return instructions
 
 
 def _remove_comments(line):
@@ -40,5 +40,5 @@ def _is_label(line):
 
 
 def _extract_label(index, line, symbol_table):
-    label = line[1:-1]
+    label = line[1:-1]  # removing parentheses around the label.
     symbol_table_module.add(label, index, symbol_table)

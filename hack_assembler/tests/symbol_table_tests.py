@@ -3,30 +3,19 @@ from .. import symbol_table
 
 
 def test_predefined_symbols():
-    my_table = symbol_table.init()
-    assert_equal(symbol_table.get('R0',     my_table), 0)
-    assert_equal(symbol_table.get('R1',     my_table), 1)
-    assert_equal(symbol_table.get('R2',     my_table), 2)
-    assert_equal(symbol_table.get('R3',     my_table), 3)
-    assert_equal(symbol_table.get('R4',     my_table), 4)
-    assert_equal(symbol_table.get('R5',     my_table), 5)
-    assert_equal(symbol_table.get('R6',     my_table), 6)
-    assert_equal(symbol_table.get('R7',     my_table), 7)
-    assert_equal(symbol_table.get('R8',     my_table), 8)
-    assert_equal(symbol_table.get('R9',     my_table), 9)
-    assert_equal(symbol_table.get('R10',    my_table), 10)
-    assert_equal(symbol_table.get('R11',    my_table), 11)
-    assert_equal(symbol_table.get('R12',    my_table), 12)
-    assert_equal(symbol_table.get('R13',    my_table), 13)
-    assert_equal(symbol_table.get('R14',    my_table), 14)
-    assert_equal(symbol_table.get('R15',    my_table), 15)
-    assert_equal(symbol_table.get('SP',     my_table), 0)
-    assert_equal(symbol_table.get('LCL',    my_table), 1)
-    assert_equal(symbol_table.get('ARG',    my_table), 2)
-    assert_equal(symbol_table.get('THIS',   my_table), 3)
-    assert_equal(symbol_table.get('THAT',   my_table), 4)
-    assert_equal(symbol_table.get('SCREEN', my_table), 16384)
-    assert_equal(symbol_table.get('KBD',    my_table), 24576)
+    expected_predefined_symbols = [
+        ('R0', 0), ('R5', 5), ('R10', 10), ('R15',  15), ('THAT',   4),
+        ('R1', 1), ('R6', 6), ('R11', 11), ('SP',   0),  ('SCREEN', 16384),
+        ('R2', 2), ('R7', 7), ('R12', 12), ('LCL',  1),  ('KBD',    24576),
+        ('R3', 3), ('R8', 8), ('R13', 13), ('ARG',  2),
+        ('R4', 4), ('R9', 9), ('R14', 14), ('THIS', 3),
+    ]
+    for entry in expected_predefined_symbols:
+        yield _check_entry, entry[0], entry[1]
+
+
+def _check_entry(key, value):
+    assert_equal(symbol_table.get(key, symbol_table.init()), value)
 
 
 def test_add():

@@ -4,8 +4,8 @@ from .parser import parse
 from .translator import translate
 
 
-def assemble(lines):
+def assemble(asm_input):
     symbol_table = symbol_table_module.init()
-    parsed_lines = parse(lines, symbol_table)
-    machine_code = translate(parsed_lines, symbol_table)
+    instructions = parse(asm_input, symbol_table)
+    machine_code = translate(instructions, symbol_table)
     return os.linesep.join(machine_code)
